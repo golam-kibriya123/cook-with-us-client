@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const Main = () => {
     return (
-        <div className='font-serif max-w-full'>
+        <div className='font-serif '>
             <Header></Header>
             <Outlet></Outlet>
         </div>

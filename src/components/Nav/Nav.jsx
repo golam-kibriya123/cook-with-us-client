@@ -24,13 +24,14 @@ const Nav = () => {
                 </div>
 
                 <div className={`nav-links flex flex-row   absolute md:static ${count ? '-top-56' : 'top-20 -left-2'}`}>
-                    <Link to="/home" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'>Home </Link>
+                    <Link to="/" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'>Home</Link>
                     <Link to="/recipes" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'> Recipes </Link>
                     <Link to="/chefs" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'>Chefs </Link>
                     <Link to="/blog" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'>Blog </Link>
                 </div>
                 <div className="login-method ">
                     <button className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]   px-2  mx-2 font-semibold h-9'>Logout</button>
+                    <Link to="/login" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-2 md:mx-2 mx-1 font-semibold '>Login </Link>
 
                 </div>
             </div>
