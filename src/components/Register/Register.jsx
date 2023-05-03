@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProviders/AuthProviders';
-
 import { Link } from 'react-router-dom';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+
 
 const Register = () => {
 
@@ -51,8 +52,10 @@ const Register = () => {
                             <div className="form-control">
                                 <label className="label relative">
                                     <span className="label-text">Password</span>
-                                    <button onClick={showHide} className={`absolute -bottom-9  right-2 font-semibold ${passwordHide ? '' : 'hidden'}`} >Show</button>
-                                    <button onClick={showHide} className={`absolute -bottom-9  right-2 font-semibold ${passwordHide ? 'hidden' : ''}`}>Hide</button>
+                                    <AiFillEyeInvisible onClick={showHide} className={`absolute -bottom-8  right-2 font-semibold ${passwordHide ? '' : 'hidden'} text-[#6ebe3b]`} />
+
+                                    <AiFillEye onClick={showHide} className={`absolute -bottom-8  right-2 font-semibold ${passwordHide ? 'hidden' : ''} text-[#6ebe3b]`} />
+
                                 </label>
                                 <input type={`${passwordHide ? 'password' : 'text'}`} placeholder="password" name='password' className="input input-bordered" required />
                                 <label className="label">
@@ -61,7 +64,7 @@ const Register = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn ">Submit</button>
+                                <button className="bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9">Submit</button>
                             </div>
                         </form>
                     </div>
