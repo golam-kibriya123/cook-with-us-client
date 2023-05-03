@@ -10,9 +10,9 @@ const Nav = () => {
     };
 
     return (
-        <div className='flex flex-col md:flex-row justify-between  p-4 '>
+        <div className='flex flex-col md:flex-row justify-between  p-4 mb-4 '>
             <div className="nav-logo">
-                <h1 className='font-extrabold text-2xl md:text-3xl lg:text-5xl  text-white ps-1'>Cook With <span className='text-[#6ebe3b] p-1'>Us</span></h1>
+                <h1 className='font-extrabold text-2xl md:text-3xl lg:text-5xl bg-[#6ebe3b] text-white ps-1'>Cook With <span className='text-[#6ebe3b] p-1'>Us</span></h1>
             </div>
 
             <div className='flex flex-row justify-between text-center relative mt-4 md:mt-0 '>
