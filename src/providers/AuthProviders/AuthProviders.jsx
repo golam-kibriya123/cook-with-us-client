@@ -6,7 +6,6 @@ const auth = getAuth(app)
 const AuthProviders = ({ children }) => {
     const [spinner, setSpinner] = useState(true);
     const [users, setUsers] = useState(null);
-    console.log(users)
     const createUsers = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
 

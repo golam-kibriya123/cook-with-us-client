@@ -8,7 +8,6 @@ const Nav = () => {
     const countHandler = () => {
         setCount(!count)
     };
-    console.log(count)
 
     return (
         <div className='flex flex-col md:flex-row justify-between  p-4 '>
