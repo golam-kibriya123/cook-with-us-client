@@ -1,40 +1,52 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css'
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-
+import { AuthContext } from '../../providers/AuthProviders/AuthProviders';
+import { getAuth, signOut } from "firebase/auth";
+import app from '../../firebase/firebase.config';
 const Nav = () => {
+    const auth = getAuth(app)
+    const { users, logout } = useContext(AuthContext);
+    console.log(users === true)
     const [count, setCount] = useState(true);
     const countHandler = () => {
         setCount(!count)
     };
-
+    const handelLogout = () => {
+        signOut(auth)
+            .then(() => { })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
     return (
-        <div className='flex flex-col md:flex-row justify-between  p-4 mb-4 '>
-            <div className="nav-logo">
-                <h1 className='font-extrabold text-2xl md:text-3xl lg:text-5xl bg-[#6ebe3b] text-white ps-1'>Cook With <span className='text-[#6ebe3b] p-1'>Us</span></h1>
+        <div className='flex flex-col md:flex-row justify-between  p-4 mb-4 shadow-lg'>
+        <div className="nav-logo">
+            <h1 className='font-extrabold text-2xl md:text-3xl lg:text-5xl bg-[#6ebe3b] text-white ps-1'>Cook With <span className='text-[#6ebe3b] p-1'>Us</span></h1>
+        </div>
+
+        <div className='flex flex-row justify-between text-center relative mt-4 md:mt-0 '>
+            <div className='h-9 w-9 bg-[#6ebe3b] rounded-full'> </div>
+            <div className={`md:hidden text-[#6ebe3b]`}>
+                <AiOutlineMenu onClick={() => countHandler()} className={`text-4xl  h-9 ${count || 'hidden'}`} />
+                <AiOutlineClose onClick={() => countHandler()} className={`text-4xl  h-9 ${count && 'hidden'}`} />
             </div>
 
-            <div className='flex flex-row justify-between text-center relative mt-4 md:mt-0 '>
-                <div className='h-9 w-9 bg-[#6ebe3b] rounded-full'> </div>
-                <div className={`md:hidden text-[#6ebe3b]`}>
-                    <AiOutlineMenu onClick={() => countHandler()} className={`text-4xl  h-9 ${count || 'hidden'}`} />
-                    <AiOutlineClose onClick={() => countHandler()} className={`text-4xl  h-9 ${count && 'hidden'}`} />
-                </div>
-
-                <div className={`nav-links flex flex-row   absolute md:static ${count ? '-top-56' : 'top-20 -left-2'}`}>
-                    <Link to="/" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'>Home</Link>
-                    <Link to="/recipes" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'> Recipes </Link>
-                    <Link to="/chefs" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'>Chefs </Link>
-                    <Link to="/blog" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'>Blog </Link>
-                </div>
-                <div className="login-method ">
-                    <button className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]   px-2  mx-2 font-semibold h-9'>Logout</button>
-                    <Link to="/login" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-2 md:mx-2 mx-1 font-semibold '>Login </Link>
-
-                </div>
+            <div className={`nav-links flex flex-row   absolute md:static ${count ? '-top-56' : 'top-20 -left-2'}`}>
+                <Link to="/" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'>Home</Link>
+                {/* <Link to="/recipes" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'> Recipes </Link> */}
+                <Link to="/chefs" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'>Chefs </Link>
+                <Link to="/blog" className='bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold h-9'>Blog </Link>
             </div>
-        </div >
+            <div className="login-method h-9 flex">
+                <button className={`bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]   px-2  mx-2 font-semibold  ${users || 'hidden'}`} onClick={handelLogout}>Logout</button>
+
+                <Link to="/login" className={`bg-[#6ebe3b] hover:bg-white text-white hover:text-[#6ebe3b] border border-[#6ebe3b]  px-1 md:px-2 py-1 md:mx-2 mx-1 font-semibold  ${users && 'hidden'} `}>Login </Link>
+
+            </div>
+        </div>
+    </div >
     );
 };
 

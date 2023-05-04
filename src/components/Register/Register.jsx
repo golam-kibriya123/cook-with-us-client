@@ -1,18 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProviders/AuthProviders';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 
 const Register = () => {
-
-    const { createUsers } = useContext(AuthContext);
-
+    const { createUsers, users, spinner } = useContext(AuthContext);
 
     const [passwordHide, setPasswordHide] = useState(true);
     const showHide = () => {
         setPasswordHide(!passwordHide)
     };
+    const [photoUrl, setPhotoUrl] = useState({});
+    const [displayName, setDisplayName] = useState({})
 
     const handelRegister = (event) => {
         event.preventDefault();
@@ -20,14 +20,23 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const name = form.name.value;
+        const photo = form.photo.value;
+        setDisplayName(name);
+        setPhotoUrl(photo);
+
+
+
         createUsers(email, password)
             .then((result) => {
-
+                result.user.displayName = displayName;
+                result.user.photoURL = photoUrl;
+                alert("success")
             })
             .catch(error => {
-                console.log(error)
+                console.log(error.message)
+                alert(`${error.message}`)
             })
-
+        form.reset()
     };
 
     return (
@@ -42,6 +51,12 @@ const Register = () => {
                                     <span className="label-text">Your Name</span>
                                 </label>
                                 <input type="text" placeholder="Your name" name='name' className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Your photo URL</span>
+                                </label>
+                                <input type="text" placeholder="Your photo URL" name='photo' className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
