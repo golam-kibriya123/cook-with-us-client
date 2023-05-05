@@ -39,13 +39,20 @@ const AuthProviders = ({ children }) => {
             .then(data => setChefs(data))
         setSpinner(false)
     }, []);
+
+    // hok for recipe id
+    const [recipeId, setRecipeId] = useState(0);
+
     const authInfo = {
         users,
         spinner,
         createUsers,
         userLogin,
         logOut,
-        chefs
+        chefs,
+        setRecipeId,
+        recipeId
+
     };
     return (
         <AuthContext.Provider value={authInfo}>

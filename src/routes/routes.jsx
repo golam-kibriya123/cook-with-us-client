@@ -6,6 +6,10 @@ import Register from "../components/Register/Register";
 import Chefs from "../components/Chefs/Chefs";
 import Recipes from "../components/Recipes/Recipes";
 import RecipesDetails from "../components/RecipesDetails/RecipesDetails";
+import Error from "../components/Error/Error";
+
+
+
 
 const router = createBrowserRouter([
     {
@@ -24,15 +28,22 @@ const router = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>
             },
-            {
-                path: '/chefs',
-                element: <Chefs></Chefs>
-            },
-           
+
             {
                 path: '/recipes/:id',
-                element:  <Recipes></Recipes>,
+                element: <Recipes></Recipes>,
                 loader: ({ params }) => fetch(` https://cook-with-us-server-golam-kibriya123.vercel.app/chef/${params.id}`)
+
+            },
+            {
+                path: '/recipesDetails/:r_id',
+                element: <RecipesDetails></RecipesDetails>,
+                loader: ({ params }) => fetch(` https://cook-with-us-server-golam-kibriya123.vercel.app/recipe/${params.r_id}`)
+
+            },
+            {
+                path: '*',
+                element: <Error></Error>
 
             }
         ]
