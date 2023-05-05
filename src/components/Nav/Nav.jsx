@@ -23,17 +23,17 @@ const Nav = () => {
     return (
         <div className='flex flex-col md:flex-row justify-between  p-4 mb-4 shadow-lg'>
             <div className="nav-logo">
-                <h1 className='font-extrabold text-2xl md:text-3xl lg:text-5xl bg-[#6ebe3b] text-white ps-1'>Cook With <span className='text-[#6ebe3b] p-1'>Us</span></h1>
+                <h1 className='font-extrabold text-2xl md:text-3xl lg:text-5xl bg-[#6ebe3b] text-white ps-1'>Cook With <span className='text-[#6ebe3b] p-1 bg-white border-2 border-[#6ebe3b]'>Us</span></h1>
             </div>
 
             <div className='flex flex-row justify-between text-center relative mt-4 md:mt-0 '>
                 <div className='h-9 w-9 bg-[#6ebe3b] rounded-full'> </div>
-                <div className={`md:hidden text-[#6ebe3b]`}>
+                {/* <div className={`md:hidden text-[#6ebe3b]`}>
                     <AiOutlineMenu onClick={() => countHandler()} className={`text-4xl  h-9 ${count || 'hidden'}`} />
                     <AiOutlineClose onClick={() => countHandler()} className={`text-4xl  h-9 ${count && 'hidden'}`} />
-                </div>
+                </div> */}
 
-                <div className={`nav-links flex flex-row   absolute md:static ${count ? '-top-56' : 'top-20 -left-2'}`}>
+                <div className={`nav-links flex flex-row     `}>
                     <ActiveRoute to="/">Home</ActiveRoute>
 
                     <ActiveRoute to="/blog" >Blog </ActiveRoute>

@@ -3,11 +3,11 @@ import React from 'react';
 const Country = () => {
     return (
         <div>
-            <div className='text-center mt-40'>
+            <div className='text-center mt-40 '>
                 <h2 className='border-b-2 border-[#6ebe3b] mb-10 text-xl md:text-2xl uppercase font-semibold md:font-bold inline-block '>explore more <span className='text-[#6ebe3b] relative'>countries
                     <div className='h-[1.8px] w-full bg-black inline-block absolute -bottom-[4.5px] left-0 '></div> </span> </h2>
             </div>
-            <div className='grid grid-cols-4'>
+            <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4'>
 
 
 

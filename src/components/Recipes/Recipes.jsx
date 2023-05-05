@@ -8,13 +8,13 @@ const Recipes = () => {
     const { recipes, image_url, name ,no_recipes,experience,likes} = data;
     return (
         <div>
-            <div className='flex items-start h-80  my-20'>
+            <div className='flex flex-col md:flex-row items-start md:h-80  my-20'>
 
-                <div className='w-[40%] h-full '>
+                <div className='w-full md:w-[40%] h-full '>
                     <img src={image_url} alt="" className='h-full w-full' />
                 </div>
 
-                <div className='w-[60%] h-full ps-32 pt-5 bg-[#6dbe3b99] text-white'>
+                <div className=' w-full md:w-[60%] h-full md:ps-32 pt-5 bg-[#6dbe3b99] text-white'>
 
                     <h1 className=' text-2xl font-bold '> {name}</h1>
                     <p className='my-3'>{no_recipes} years of experience</p>

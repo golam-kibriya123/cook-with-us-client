@@ -7,6 +7,7 @@ import Chefs from "../components/Chefs/Chefs";
 import Recipes from "../components/Recipes/Recipes";
 import RecipesDetails from "../components/RecipesDetails/RecipesDetails";
 import Error from "../components/Error/Error";
+import Blog from "../components/Blog/Blog";
 
 
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
                 element: <RecipesDetails></RecipesDetails>,
                 loader: ({ params }) => fetch(` https://cook-with-us-server-golam-kibriya123.vercel.app/recipe/${params.r_id}`)
 
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             },
             {
                 path: '*',

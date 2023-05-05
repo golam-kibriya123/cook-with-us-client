@@ -49,7 +49,7 @@ const RecipesDetails = () => {
                     </div>
                     <HiArrowLeft className='absolute bottom-1  text-3xl p-1
                      hover:text-[#6ebe3b] bg-[#000000]  bg-opacity-50 rounded-md cursor-pointer border hover:border-[#6ebe3b] hover:bg-opacity-0' onClick={() => navigate(-1)} />
-                    <button className={`absolute bottom-0 right-7 btn ${favorite&&'btn-disabled text-green-400'}`} onClick={()=>{setFavorite(!favorite)}}>
+                    <button className={`absolute bottom-0 right-12 md:right-7 btn ${favorite&&'btn-disabled text-green-400'}`} onClick={()=>{setFavorite(!favorite)}}>
                         Add To Favorite
                         <MdOutlineFavorite className={`text-pink-600 text-4xl  cursor-pointer ps-1 ms-1 ${favorite&&'text-green-400'}`} />
                     </button>
