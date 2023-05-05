@@ -17,7 +17,7 @@ const Country = () => {
                     </div>
                     <div className='flex cursor-pointer w-full bg-[#6ebe3b] h-[12%] '>
                         <img src="https://www.cia.gov/the-world-factbook/static/bf1dccda1f36cfb29978248728726aab/c5a34/AF-flag.jpg" alt="country-flag" className='h-full w-[23%] ' />
-                        <h2 className='py-[5px] px-1 m-0 text-white text-center font-bold text-xl w-[77%]'>BANGLADESH</h2>
+                        <h2 className='py-[5px] px-1 m-0 text-white text-center font-bold text-xl w-[77%] border border-[#6ebe3b] hover:bg-white hover:text-[#6ebe3b]'>BANGLADESH</h2>
                     </div>
                 </div>
 
@@ -55,7 +55,7 @@ const Country = () => {
                 </div>
 
 
-               
+
 
 
 

@@ -28,13 +28,12 @@ const router = createBrowserRouter([
                 path: '/chefs',
                 element: <Chefs></Chefs>
             },
+           
             {
-                path: '/recipes',
-                element: <Recipes></Recipes>
-            },
-            {
-                path: '/recipesDetails',
-                element: <RecipesDetails></RecipesDetails>
+                path: '/recipes/:id',
+                element:  <Recipes></Recipes>,
+                loader: ({ params }) => fetch(` https://cook-with-us-server-golam-kibriya123.vercel.app/chef/${params.id}`)
+
             }
         ]
     }

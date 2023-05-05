@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import app from '../../firebase/firebase.config';
+import Sppiner from '../../components/Spinner/Sppiner';
 export const AuthContext = createContext(null);
 const auth = getAuth(app)
 const AuthProviders = ({ children }) => {
@@ -21,19 +22,30 @@ const AuthProviders = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUsers(currentUser);
-            setSpinner(false)
         });
         return () => {
             unSubscribe();
         }
     }, []);
 
+    // Load all Data
+
+
+    const [chefs, setChefs] = useState([]);
+
+    useEffect(() => {
+        fetch('https://cook-with-us-server-golam-kibriya123.vercel.app/chef')
+            .then(res => res.json())
+            .then(data => setChefs(data))
+        setSpinner(false)
+    }, []);
     const authInfo = {
         users,
         spinner,
         createUsers,
         userLogin,
-        logOut
+        logOut,
+        chefs
     };
     return (
         <AuthContext.Provider value={authInfo}>

@@ -32,7 +32,7 @@ const SliderOne = () => {
                     slot="container-start"
                     className="parallax-bg h-full bg-no-repeat  bg-center bg-cover"
                     style={{
-                        "background-image":
+                        "backgroundImage":
                             "url(https://img.freepik.com/free-photo/delicious-chicken-table_144627-8761.jpg?w=900&t=st=1683190390~exp=1683190990~hmac=75b984c29197819768e7867b69fabbe599974da6d4e149ec11e6038bc4a4b5a7)",
                     }}
                     data-swiper-parallax="-23%"
